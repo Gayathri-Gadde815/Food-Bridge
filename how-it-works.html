@@ -1,0 +1,107 @@
+<!-- frontend/how-it-works.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works - FoodBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .how-img {
+      width: 100%;
+      max-width: 250px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">🍛 FoodBridge</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="contact-us.html">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ How It Works Section -->
+  <div class="container images mt-5">
+    <h2 class="text-center mb-4">How FoodBridge Works</h2>
+    <p class="text-center mb-5">A simple process that connects food donors with NGOs to reduce hunger and waste.</p>
+
+    <div class="row text-center">
+      <!-- Step 1 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="donation.png" class="img-fluid how-img" alt="Donating food">
+        <h5 class="mt-3">Step 1: Donate</h5>
+        <p>Donors submit food details via the Donate page.</p>
+      </div>
+       
+      <!-- Step 2 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="location.png" class="img-fluid how-img" alt="Location Match">
+        <h5 class="mt-3">Step 2: Nearby Match</h5>
+        <p>NGOs can able to see the list of nearby  Donations.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="contact.png" class="img-fluid how-img" alt="Contact">
+        <h5 class="mt-3">Step 3: Contact</h5>
+        <p>NGOs contact donors to confirm availability and pickup.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="collecting.png" class="img-fluid how-img" alt="Collecting food">
+        <h5 class="mt-3">Step 4: Collect</h5>
+        <p>NGOs collect the food safely and quickly.</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="fooddistribution.png" class="img-fluid how-img" alt="Distribution">
+        <h5 class="mt-3">Step 5: Distribute</h5>
+        <p>Food is distributed to those in need at shelters, homes, and communities.</p>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <img src="happines.png" class="img-fluid how-img" alt="Gratitude">
+        <h5 class="mt-3">Step 6: Impact</h5>
+        <p>Everyone wins — donors reduce waste, NGOs serve meals, lives are touched.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer class="container py-4 mt-5 border-top">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="features.html" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="how-it-works.html" class="nav-link px-2 text-body-secondary">How It Works</a></li>
+      <li class="nav-item"><a href="contact-us.html" class="nav-link px-2 text-body-secondary">Contact Us</a></li>  
+      
+      </ul>
+    <p class="text-center text-body-secondary">© 2025 FoodBridge</p>
+  </footer>
+
+  <!-- ✅ Toggle Script -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>

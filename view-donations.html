@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Available Donations - FoodBridge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Available Donations</h1>
+
+  <!-- 🔓 Logout Button -->
+  <button id="logoutBtn" style="float: right; margin: 10px;">Logout</button>
+
+  <div id="donationList"></div>
+
+  <script>
+    // 🔒 Check if NGO is logged in
+    if (localStorage.getItem('loggedInNGO') !== 'true') {
+      window.location.href = 'ngo-login.html';
+    }
+
+    // 🔓 Logout function
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('loggedInNGO');
+      window.location.href = 'ngo-login.html';
+    });
+
+    // Fetch and display donations
+    async function fetchDonations() {
+      try {
+        const res = await fetch('/api/donations');
+        const donations = await res.json();
+        const list = document.getElementById('donationList');
+
+        if (donations.length === 0) {
+          list.innerHTML = "<p>No donations available yet.</p>";
+          return;
+        }
+
+        donations.forEach(donation => {
+          const div = document.createElement('div');
+          div.className = "donation-card";
+          div.innerHTML = `
+            <h3>${donation.foodName}</h3>
+            <p><strong>Quantity:</strong> ${donation.quantity}</p>
+            <p><strong>Location:</strong> ${donation.address}</p>
+            <p><strong>Expiry:</strong> ${new Date(donation.expiry).toLocaleString()}</p>
+            <p><strong>Contact:</strong> ${donation.contact}</p>
+            <hr/>
+          `;
+          list.appendChild(div);
+        });
+      } catch (error) {
+        console.error('Failed to fetch donations:', error);
+        document.getElementById('donationList').innerText = "Error loading donations.";
+      }
+    }
+
+    fetchDonations();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NGO Profile - FoodBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo ms-3">🍛 FoodBridge</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ngo-dashboard.html">Dashboard</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container mt-5">
+    <h3 class="text-success">📄 Your Profile</h3>
+    <div class="bg-light p-4 rounded shadow-sm">
+      <p><strong>Name:</strong> <span id="profileName"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Contact:</strong> <span id="profileContact"></span></p>
+      <p><strong>Location:</strong> <span id="profileLocation"></span></p>
+      <p><strong>Started In:</strong> <span id="profileStartYear"></span></p>
+    </div>
+  </div>
+
+  <script>
+    // Get token from localStorage (assumed you store it after login)
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('You must login first.');
+      window.location.href = 'ngo-login.html';
+    }
+
+    async function fetchProfile() {
+      try {
+        const res = await fetch('/api/ngo/profile', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (!res.ok) throw new Error('Failed to fetch profile');
+
+        const profile = await res.json();
+        document.getElementById('profileName').textContent = profile.name || '';
+        document.getElementById('profileEmail').textContent = profile.email || '';
+        document.getElementById('profileContact').textContent = profile.contact || '';
+        document.getElementById('profileLocation').textContent = profile.location || '';
+        document.getElementById('profileStartYear').textContent = profile.startYear || 'Not specified';
+      } catch (error) {
+        console.error(error);
+        alert('Error fetching profile. Please login again.');
+        localStorage.clear();
+        window.location.href = 'ngo-login.html';
+      }
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'ngo-login.html';
+    }
+
+    fetchProfile();
+  </script>
+</body>
+</html>

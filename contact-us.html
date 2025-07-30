@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - FoodBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="logo">🍛 FoodBridge</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Contact Info Only -->
+  <section class="container my-5">
+    <h2 class="text-center text-success mb-4">📬 Contact Information</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="bg-light p-4 rounded shadow">
+          <h5>📍 Address</h5>
+          <p>FoodBridge HQ,<br> 123 Kindness Street, Bengaluru, India</p>
+
+          <h5>📞 Phone</h5>
+          <p>+91 98765 43210</p>
+
+          <h5>📧 Email</h5>
+          <p>supportfoodbridge@gmail.com</p>
+
+          <h5>⏰ Working Hours</h5>
+          <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer class="container py-4 mt-5 border-top">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="features.html" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="how-it-works.html" class="nav-link px-2 text-body-secondary">How It Works</a></li>
+      <li class="nav-item"><a href="contact-us.html" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2025 FoodBridge</p>
+  </footer>
+
+  <!-- ✅ Toggle Menu Script -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
